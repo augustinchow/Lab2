@@ -59,7 +59,7 @@ def get_user_input():
 
     return numeric_list
 
-# Example of how to use these functions:
+
 if __name__ == "__main__":
     display_main_menu()
     user_input = get_user_input()
@@ -81,7 +81,7 @@ def calc_min_max_temperature(temperature_list):
     maximum = max(temperature_list)
     return [minimum, maximum]
 
-# Example of how to use these functions:
+
 if __name__ == "__main__":
     # Assume you have a list of temperature readings (e.g., [25.5, 30.2, 22.1, 27.8, 19.0])
     temperature_readings = [25.5, 30.2, 22.1, 27.8, 19.0]
@@ -92,3 +92,33 @@ if __name__ == "__main__":
     print("Average Temperature:", average_temp)
     print("Minimum Temperature:", min_max_temp[0])
     print("Maximum Temperature:", min_max_temp[1])
+
+
+    def calc_median_temperature(temperature_list):
+        # Sort the temperature list in ascending order
+        sorted_temperatures = sorted(temperature_list)
+
+        # Calculate the length of the sorted list
+        n = len(sorted_temperatures)
+
+        # Calculate the median based on the number of elements in the list
+        if n % 2 == 1:
+            # If the number of elements is odd, return the middle value
+            median = sorted_temperatures[n // 2]
+        else:
+            # If the number of elements is even, return the average of the two middle values
+            middle1 = sorted_temperatures[n // 2 - 1]
+            middle2 = sorted_temperatures[n // 2]
+            median = (middle1 + middle2) / 2.0
+
+        return median
+
+
+
+    if __name__ == "__main__":
+        # Assume you have a list of temperature readings (e.g., [25.5, 30.2, 22.1, 27.8, 19.0])
+        temperature_readings = [25.5, 30.2, 22.1, 27.8, 19.0]
+
+        median_temp = calc_median_temperature(temperature_readings)
+        print("Median Temperature:", median_temp)
+
